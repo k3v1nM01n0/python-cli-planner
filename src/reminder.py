@@ -1,3 +1,6 @@
+from sys import prefix
+
+
 class PrefixedReminder:
     """This class acts as a base class for other types of reminders.
     Classes that subclass it should override the `self.text` property
@@ -8,5 +11,8 @@ class PrefixedReminder:
 
 
 class PoliteReminder(PrefixedReminder):
-    def __init__(self) -> None:
-        PrefixedReminder.__init__()
+    def __init__(self, text:str):
+        super().__init__("Please ")
+        self.text = self.prefix + text
+
+
